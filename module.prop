@@ -1,0 +1,6 @@
+id=toilet-ndk
+name=TOIlet for Android
+version=0.3
+versionCode=1
+author=nelshh
+description=A statically built version of TOIlet for android (aarch64)
