@@ -1,8 +1,8 @@
-# TOIlet for Android (aarch64)
+# Toilet for Android (aarch64)
 
 ## by nelshh @ xda-developers
 
-This Magisk module installs the latest stable version of TOIlet to the target system
+This Magisk module installs the latest stable version of Toilet to the target system
 
 ## Change Log
 
