@@ -28,10 +28,10 @@ SKIPMOUNT=false
 PROPFILE=false
 
 # Set to true if you need post-fs-data script
-POSTFSDATA=true
+POSTFSDATA=false
 
 # Set to true if you need late_start service script
-LATESTARTSERVICE=false
+LATESTARTSERVICE=true
 
 ##########################################################################################
 # Replace list
@@ -147,14 +147,22 @@ on_install() {
 set_permissions() {
   # The following is the default rule, DO NOT remove
   set_perm_recursive $MODPATH 0 0 0755 0644;
-  ui_print "[3/5] Installing toilet executables"
+  ui_print "[3/5] TOIlet executable.."
   chown 0:0 $MODPATH/system/bin/toilet;
   chmod 755 $MODPATH/system/bin/toilet;
-  ui_print "[4/5] Installing font files"
-  chown -R 0:0 $MODPATH/system/share;
-  find $MODPATH/system/share -type d -exec chmod 755 {} +;
-  find $MODPATH/system/share -type f -exec chmod 755 {} +;
+
+  ui_print "[4/5] Font files and manpage.."
+
+  chown -R 0:0 $MODPATH/system/usr/share;
+
+  find $MODPATH/system/usr/share/figlet -type d -exec chmod 755 {} +;
+  find $MODPATH/system/usr/share/figlet -type f -exec chmod 644 {} +;
+
+  find $MODPATH/system/usr/share/man -type d -exec chmod 755 {} +;
+  find $MODPATH/system/usr/share/man/man* -type f -exec chmod 644 {} +;
+
+  find $MODPATH/system/usr/share/terminfo -type d -exec chmod 755 {} +;
+  find $MODPATH/system/usr/share/terminfo -type f -exec chmod 644 {} +;
+
   ui_print "[5/5] Installation finished";
 }
-
-# You can add more functions to assist your custom script code
