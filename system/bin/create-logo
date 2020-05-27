@@ -1,0 +1,4 @@
+#/system/bin/bash
+echo "$(toilet -f Slant $1 | lolcat -f -F 0.4)" > ~/.tmp.tmp;
+echo "$(toilet -f wideterm -- "   --------- v$2"| lolcat -f -F 0.4)" >> ~/.tmp.tmp;
+cat ~/.tmp.tmp
