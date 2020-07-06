@@ -1,0 +1,8 @@
+#!/system/bin/bash
+IFS=$'\n';
+for font in $(fd -e flf . /system/usr/share/figlet); do 
+	x="$(basename $font)";
+	font_name=${x%.flf};
+	echo "$font_name:\n"
+	toilet -f "$font_name" test;
+done
